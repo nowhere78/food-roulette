@@ -1,8 +1,10 @@
 {
+  "id": "/food-roulette/",
   "name": "네온 커스텀 룰렛",
   "short_name": "네온 룰렛",
   "start_url": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0c0a17",
   "theme_color": "#a855f7",
   "description": "결정하기 힘든 날에는 네온 룰렛을 돌려보세요! 나만의 커스텀 룰렛",
