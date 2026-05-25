@@ -479,3 +479,103 @@ body {
 .modal-footer .btn {
   width: 100%;
 }
+
+/* Coupang Bottom Rolling Widget CSS */
+.app-footer-widget {
+  margin-top: 10px;
+  padding: 16px 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .app-footer-widget {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 250px;
+}
+
+.widget-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.badge {
+  background: var(--neon-pink);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.rolling-container {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.rolling-track {
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+.rolling-track:hover {
+  animation-play-state: paused;
+}
+
+.rolling-item {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.rolling-item:hover {
+  color: var(--neon-blue);
+}
+
+.rolling-item .highlight {
+  color: var(--neon-pink);
+  font-weight: 700;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+

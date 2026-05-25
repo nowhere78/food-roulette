@@ -243,6 +243,34 @@ function spin() {
   requestAnimationFrame(animate);
 }
 
+// Dynamic Coupang Affiliate Items for Bottom Marquee Banner
+const rollingProducts = [
+  { name: '로켓프레시 한돈 삼겹살 구이용 1kg', price: '19,800원', discount: '20% 세일' },
+  { name: '순살 닭강정 밀키트 (에어프라이어용)', price: '8,900원', discount: '특가' },
+  { name: '마감세일 곰곰 광어회 + 연어회 세트', price: '16,500원', discount: '마감임박' },
+  { name: '정통 이탈리안 밀푀유나베 간편 쿠킹박스', price: '12,900원', discount: '로켓프레시' },
+  { name: '소문난 부산식 가래떡 떡볶이 패키지', price: '5,400원', discount: '인기상품' },
+  { name: '아메리칸 스타일 페퍼로니 피자 2판', price: '11,800원', discount: '반값찬스' }
+];
+
+// Populate Bottom Marquee Banner
+function initRollingBanner() {
+  const track = document.getElementById('rolling-track');
+  if (!track) return;
+
+  // Double the array to make seamless marquee loop
+  const list = [...rollingProducts, ...rollingProducts];
+  track.innerHTML = list.map(prod => {
+    // Replace with your real Coupang partners sub-link if needed
+    const affiliateUrl = `https://link.coupang.com/a/custom-food-search?q=${encodeURIComponent(prod.name)}`;
+    return `
+      <a href="${affiliateUrl}" target="_blank" class="rolling-item">
+        📌 <span class="highlight">[${prod.discount}]</span> ${prod.name} ➔ <span style="color:#00f0ff; font-weight:bold;">${prod.price}</span>
+      </a>
+    `;
+  }).join('');
+}
+
 // Show Result Modal
 function showResult() {
   const len = menuItems.length;
@@ -262,7 +290,8 @@ function showResult() {
   
   // Update Coupang link dynamically
   recItemName.textContent = winnerName;
-  recLink.href = `https://link.coupang.com/a/custom-food-search?q=${encodeURIComponent(winnerName)}`;
+  // Replace with your actual Coupang partners Search bridge URL or general partners URL
+  recLink.href = `https://link.coupang.com/a/custom-food-search?q=${encodeURIComponent(winnerName + ' 밀키트')}`;
   
   // Show Modal
   resultModal.classList.add('show');
@@ -299,3 +328,5 @@ window.deleteItem = deleteItem;
 
 // Initial Setup
 updateUI();
+initRollingBanner();
+
