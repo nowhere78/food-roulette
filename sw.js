@@ -1,10 +1,12 @@
-const CACHE_NAME = 'food-roulette-v1';
+const CACHE_NAME = 'food-roulette-v2';
 const ASSETS = [
   './',
   './index.html',
   './app.js',
   './style.css',
   './icon.svg',
+  './images/icon-192.png',
+  './images/icon-512.png',
   './manifest.json',
   'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap'
 ];
