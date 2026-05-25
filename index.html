@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네온 커스텀 룰렛 - 오늘 뭐 먹지?</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glass-bg-container">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <span class="emoji">🎯</span>
+        <h1>NEON ROULETTE</h1>
+      </div>
+      <p class="subtitle">선택 장애 해결사! 나만의 룰렛을 돌려보세요.</p>
+    </header>
+
+    <main class="main-content">
+      <!-- Input Section -->
+      <section class="setup-section glass-panel">
+        <div class="panel-header">
+          <h2>📝 선택지 입력</h2>
+          <span class="counter" id="item-count">0 / 10</span>
+        </div>
+        
+        <div class="input-group">
+          <input type="text" id="menu-input" placeholder="예: 삼겹살, 치킨, 초밥 (최대 10자)" maxlength="10">
+          <button id="add-btn" class="btn btn-primary">추가</button>
+        </div>
+
+        <ul class="menu-list" id="menu-list">
+          <!-- Dynamically added items go here -->
+        </ul>
+
+        <div class="preset-container">
+          <span class="preset-label">추천 세트:</span>
+          <div class="preset-tags">
+            <button class="preset-tag" data-preset="lunch">점심 단골 메뉴</button>
+            <button class="preset-tag" data-preset="dinner">오늘 저녁 야식</button>
+            <button class="preset-tag" data-preset="snack">당 충전 디저트</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roulette Section -->
+      <section class="wheel-section glass-panel">
+        <div class="wheel-container">
+          <div class="wheel-pointer">▼</div>
+          <canvas id="wheel-canvas" width="400" height="400"></canvas>
+          <button id="spin-btn" class="wheel-center-btn">SPIN!</button>
+        </div>
+
+        <div class="action-buttons">
+          <button id="reset-btn" class="btn btn-secondary">초기화</button>
+          <button id="share-btn" class="btn btn-share" style="display: none;">결과 공유</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Result Modal -->
+  <div class="modal" id="result-modal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <span class="celebrate-emoji">🎉</span>
+        <h2>오늘의 선택!</h2>
+      </div>
+      <div class="result-display" id="result-name">짜장면</div>
+      <p class="result-message">고민하지 말고 바로 맛있게 드세요!</p>
+      
+      <!-- Partner Recommendation -->
+      <div class="partners-recommend" id="partners-section">
+        <p class="rec-title">🛒 오늘 요리해 볼까요?</p>
+        <a href="#" id="rec-link" target="_blank" class="rec-btn">
+          <span id="rec-item-name">밀키트</span> 로켓프레시 최저가 보기 ➔
+        </a>
+      </div>
+
+      <div class="modal-footer">
+        <button id="close-modal" class="btn btn-primary">다시 돌리기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="app.js"></script>
+</body>
+</html>
