@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>네온 커스텀 룰렛 - 오늘 뭐 먹지?</title>
+  
+  <!-- PWA Setup -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#a855f7">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
